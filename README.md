@@ -1,73 +1,110 @@
-# Welcome to your Lovable project
+# 🩺 Doctor Listing Page – Campus Assessment Project
 
-## Project info
+A fully client-side doctor listing web application built for the Campus Assessment. Users can search doctors by name, apply multiple filters (consultation type, specialties), and sort results by fee or experience. Filters are synced with URL query parameters and support browser navigation.
 
-**URL**: https://lovable.dev/projects/f8007f36-4d09-463a-b5b9-18a67966b4a7
+---
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- 🔍 **Autocomplete Search** (Top 3 doctor name suggestions)
+- 🎛️ **Dynamic Filter Panel**
+  - Consultation Type (Video Consult / In Clinic)
+  - Specialties (Multi-select)
+  - Sort by Fees (Asc) or Experience (Desc)
+- 💾 **Frontend-only Filtering**
+- 🌐 **URL Query Param Sync** (Retain filter state on refresh or navigation)
+- 🎯 **Test Case Ready** (All interactive elements have `data-testid` attributes)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f8007f36-4d09-463a-b5b9-18a67966b4a7) and start prompting.
+## 🏗️ Project Structure
 
-Changes made via Lovable will be committed automatically to this repo.
+```
+src/
+├── components/
+│   └── ui/                  # Reusable UI components
+│       ├── DoctorCard.tsx
+│       ├── DoctorListingPage.tsx
+│       ├── FilterPanel.tsx
+│       └── SearchBar.tsx
+├── hooks/                   # Custom React hooks
+│   ├── use-mobile.ts
+│   └── use-toast.ts
+├── lib/                     # Shared logic/utils
+│   └── utils.ts
+├── pages/                   # Page-level components (if routing added)
+├── services/                # Data fetching logic
+├── types/                   # TypeScript types
+├── App.tsx                  # Main component
+├── main.tsx                 # App entry point
+└── vite-env.d.ts
+```
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧪 Test Attributes (`data-testid`)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Element                    | `data-testid`                      |
+|---------------------------|-------------------------------------|
+| Search Bar                | `autocomplete-input`               |
+| Suggestion Item           | `suggestion-item`                  |
+| Doctor Card Wrapper       | `doctor-card`                      |
+| Doctor Name               | `doctor-name`                      |
+| Doctor Specialties        | `doctor-specialty`                 |
+| Experience                | `doctor-experience`                |
+| Fee                       | `doctor-fee`                       |
+| Filter Headers            | `filter-header-*`                  |
+| Consultation Type Filters | `filter-video-consult`, `filter-in-clinic` |
+| Specialty Checkboxes      | `filter-specialty-*`               |
+| Sort Options              | `sort-fees`, `sort-experience`     |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🌐 API Used
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Endpoint: [SRM-C1-25.json](https://srijandubey.github.io/campus-api-mock/SRM-C1-25.json)
+- Fetch once on app load
+- All filtering and sorting handled client-side
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 🧠 Implementation Highlights
+
+- **React Hooks**: Functional components with hooks like `useEffect`, `useState`, and custom query param management
+- **Efficient Filtering**: Filters applied in order, using priority
+- **Memoized Sorting/Filtering**: Optimized with `useMemo` for performance
+- **URL Query Handling**: Syncs state with query parameters using `URLSearchParams`
+
+---
+
+## 🛠️ Setup & Run Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Run dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+App runs at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🧼 Linting & Formatting
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run lint     # Run ESLint
+npm run format   # Format with Prettier
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📦 Built With
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f8007f36-4d09-463a-b5b9-18a67966b4a7) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [ESLint](https://eslint.org/)
+- [bun](https://bun.sh/) (Optional: if you're running with `bun` instead of `npm/yarn`)
