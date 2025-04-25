@@ -18,7 +18,7 @@ const FilterPanel = ({ doctors }: FilterPanelProps) => {
   const [sortExpanded, setSortExpanded] = useState(true);
   
   // Get all unique specialties from doctors
-  const allSpecialties = [...new Set(doctors.flatMap(doctor => doctor.specialty))].sort();
+  const allSpecialties = [...new Set(doctors.flatMap(doctor => doctor.specialty || []))].sort();
   
   // Current filter states
   const [selectedConsultation, setSelectedConsultation] = useState<string | null>(null);

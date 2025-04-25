@@ -59,7 +59,7 @@ const DoctorListingPage = () => {
     const specialties = searchParams.getAll('specialty');
     if (specialties.length > 0) {
       filtered = filtered.filter(doctor => 
-        specialties.some(specialty => doctor.specialty.includes(specialty))
+        doctor.specialty && specialties.some(specialty => doctor.specialty?.includes(specialty))
       );
     }
     

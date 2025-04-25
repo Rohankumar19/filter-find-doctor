@@ -3,7 +3,8 @@ export interface Doctor {
   id: string;
   name: string;
   image?: string;
-  specialty: string[];
+  specialty?: string[];
+  specialities?: { name: string }[];
   experience: number;
   fee: number;
   consultationType: string[];

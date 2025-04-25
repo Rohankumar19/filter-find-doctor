@@ -29,7 +29,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
             </h2>
             
             <p className="text-gray-700 mb-2" data-testid="doctor-specialty">
-              {doctor.specialty.join(', ')}
+              {doctor.specialty ? doctor.specialty.join(', ') : ''}
             </p>
             
             <p className="text-gray-600 mb-2" data-testid="doctor-experience">

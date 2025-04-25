@@ -97,7 +97,7 @@ const SearchBar = ({ doctors }: SearchBarProps) => {
                 data-testid="suggestion-item"
               >
                 <div className="font-medium">{doctor.name}</div>
-                <div className="text-sm text-gray-600">{doctor.specialty.join(', ')}</div>
+                <div className="text-sm text-gray-600">{doctor.specialty ? doctor.specialty.join(', ') : ''}</div>
               </div>
             ))}
           </div>
